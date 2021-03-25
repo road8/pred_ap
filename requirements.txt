@@ -1,5 +1,4 @@
 streamlit
 Pillow
-matplotlib
 math
 scikit-learn
