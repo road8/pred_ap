@@ -16,8 +16,8 @@ st.title("データ予測アプリ")
 st.header('CSVファイルについて')
 st.write('CSVの1列目に予測したい値を入力し、2列目以降に予測に必要な値を入力してください。')
 st.write('CSVの1列目の最終行に予測したい内容を1列目のみ空欄で追加していってください')
-#im = Image.open("IMG.jpg")
-st.image("IMG.jpg")
+image = Image.open('IMG.jpg')
+st.image(image, caption='サンプル',use_column_width=True)
 #width = 800
 #ratio = width / im.width
 #height = int(im.height * ratio) #(5)
