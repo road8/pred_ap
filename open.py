@@ -22,7 +22,7 @@ st.write('CSVの1列目の最終行に予測したい内容を1列目のみ空�
 #height = int(im.height * ratio) #(5)
 #im_resized = im.resize((width, height))
 #im_resized.save('img1.jpg')
-st.image("IMG.jpg")
+#st.image("IMG.jpg")
 
 #ファイルのアップロード(CSV)他にも画像や音声や動画もOK
 uploaded_file = st.file_uploader("ファイルの取り込み", type='csv')
