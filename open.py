@@ -16,13 +16,13 @@ st.title("データ予測アプリ")
 st.header('CSVファイルについて')
 st.write('CSVの1列目に予測したい値を入力し、2列目以降に予測に必要な値を入力してください。')
 st.write('CSVの1列目の最終行に予測したい内容を1列目のみ空欄で追加していってください')
-im = Image.open("IMG.jpg")
+#im = Image.open("IMG.jpg")
 #width = 800
 #ratio = width / im.width
 #height = int(im.height * ratio) #(5)
 #im_resized = im.resize((width, height))
 #im_resized.save('img1.jpg')
-st.image(im)
+st.image("IMG.jpg")
 
 #ファイルのアップロード(CSV)他にも画像や音声や動画もOK
 uploaded_file = st.file_uploader("ファイルの取り込み", type='csv')
