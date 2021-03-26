@@ -1,7 +1,7 @@
 import streamlit as st 
 import numpy as np
 import pandas as pd
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 from PIL import Image
 import math
 from sklearn.model_selection import train_test_split
@@ -9,6 +9,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.svm import SVR
 from sklearn.ensemble import RandomForestRegressor
 
+import base64
+from io import BytesIO
 
 #タイトルの記入
 st.title("データ予測アプリ")
@@ -16,14 +18,13 @@ st.title("データ予測アプリ")
 st.header('CSVファイルについて')
 st.write('CSVの1列目に予測したい値を入力し、2列目以降に予測に必要な値を入力してください。')
 st.write('CSVの1列目の最終行に予測したい内容を1列目のみ空欄で追加していってください')
-image = Image.open('IMG.JPG')
-st.image(image, caption='サンプル',use_column_width=True)
+#im = Image.open("IMG.jpg")
 #width = 800
 #ratio = width / im.width
 #height = int(im.height * ratio) #(5)
 #im_resized = im.resize((width, height))
 #im_resized.save('img1.jpg')
-#st.image("IMG.jpg")
+st.image("IMG.jpg")
 
 #ファイルのアップロード(CSV)他にも画像や音声や動画もOK
 uploaded_file = st.file_uploader("ファイルの取り込み", type='csv')
@@ -99,12 +100,15 @@ if uploaded_file is not None:
         #予測結果を追記
         X2['Predict'] = Y_pred
         X3 = X2
-        X3.to_csv("result.csv" ,encoding="SHIFT-JIS")
-        #結果表示
+        #X3.to_csv("result.csv" ,encoding="SHIFT-JIS")
+        
+        #CSVダウンロード機能の追加
+        csv = X3.to_csv(index=False)
+        b64 = base64.b64encode(csv.encode("SHIFT-JIS")).decode()  # some strings
+        linko= f'<a href="data:file/csv;base64,{b64}" download="result.csv">Download csv file</a>'
+        st.markdown(linko, unsafe_allow_html=True)
+        
+        #結果を表示
         X2 = X2.style.set_properties(**{"background-color":"orange"}, subset=["Predict"])
         st.dataframe(X2)
         comment.write(name)
-   
-
-    
-    
