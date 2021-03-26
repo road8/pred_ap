@@ -2,4 +2,4 @@ streamlit
 Pillow
 scikit-learn
 base64
-io
+BytesIO
