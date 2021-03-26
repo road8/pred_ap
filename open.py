@@ -109,6 +109,7 @@ if uploaded_file is not None:
         st.markdown(linko, unsafe_allow_html=True)
         
         #結果を表示
+        X2 = X2.options.display.float_format = '{:.2f}'.format
         X2 = X2.style.set_properties(**{"background-color":"orange"}, subset=["Predict"])
         st.dataframe(X2)
         comment.write(name)
