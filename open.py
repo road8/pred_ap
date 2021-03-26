@@ -95,8 +95,7 @@ if uploaded_file is not None:
         #結果をリスト型に格納    
         Y_pred = Y_pred.tolist()
         #小数点は第二まで
-        #Y_pred = [round(Y_pred[n], 2) for n in range(len(Y_pred))]
-        Y_pred = math.ceil(Y_pred)
+        Y_pred = [round(Y_pred[n], 2) for n in range(len(Y_pred))]
         
         #予測結果を追記
         X2['Predict'] = Y_pred
