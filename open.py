@@ -99,7 +99,6 @@ if uploaded_file is not None:
         
         #予測結果を追記
         X2['Predict'] = Y_pred
-        X2 = [round(X2[n], 2) for n in range(len(X2))]
         X3 = X2
         #X3.to_csv("result.csv" ,encoding="SHIFT-JIS")
         
